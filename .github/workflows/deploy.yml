@@ -44,10 +44,11 @@ jobs:
     needs: build
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages  # Ensure you are deploying to the correct branch
-          folder: dist      # Ensure only the `dist/` folder is deployed
+          branch: master  # ✅ Deploy directly from master
+          folder: dist  # ✅ Ensure only built files are deployed
