@@ -215,7 +215,7 @@ const baseUrl = import.meta.env.BASE_URL;
           cardTags.some((tag) => tag.includes(searchTerm));
 
         const matchesCategory = activeCategory === "all" || cardCategory === activeCategory;
-        const matchesTag = !activeTag || cardTags.includes(activeTag);
+        const matchesTag = !activeTag || cardTags.includes(activeTag.toLowerCase());
 
         card.style.display = matchesSearch && matchesCategory && matchesTag ? "block" : "none";
       });
