@@ -16,7 +16,7 @@ We welcome contributions from developers who create English learning resources! 
 
 1. Fork this repository
 2. Create a new branch for your resource
-3. Add your resource using the template in `src/content/resources/_template.md`
+3. Add your resource using the template in `src/content/resources/_template.json`
 4. Submit a pull request
 
 For detailed guidelines, please see our [Contributing Guide](CONTRIBUTING.md).
