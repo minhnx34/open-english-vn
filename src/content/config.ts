@@ -13,13 +13,24 @@ const blog = defineCollection({
 });
 
 const resources = defineCollection({
-  type: 'content',
+  type: 'data',
   schema: z.object({
     title: z.string(),
     description: z.string(),
     url: z.string().url(),
-    thumbnail: z.string(),
-    categories: z.array(z.string()),
+    category: z.enum([
+      'Grammar',
+      'Speaking',
+      'Listening',
+      'Writing',
+      'Reading',
+      'Vocabulary',
+      'IELTS',
+      'TOEFL',
+      'General',
+    ]),
+    tags: z.array(z.string()),
+    free: z.boolean().default(false),
   }),
 });
 

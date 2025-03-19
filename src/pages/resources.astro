@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+interface Resource {
+  data: {
+    title: string;
+    description: string;
+    url: string;
+    category: string;
+    tags: string[];
+    free: boolean;
+  };
+}
+
+const resources = await getCollection('resources');
+
+// Group resources by category
+const groupedResources: Record<string, Resource[]> = resources.reduce((acc, resource) => {
+  const category = resource.data.category || 'Other';
+  if (!acc[category]) acc[category] = [];
+  acc[category].push(resource);
+  return acc;
+}, {} as Record<string, Resource[]>);
+
+// Get unique tags from all resources
+const allTags = [...new Set(resources.flatMap((resource) => resource.data.tags))];
+---
+
+<Layout title="English Learning Resources | OpenEnglishVN">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        English Learning Resources
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        Discover curated resources to help you master English language skills.
+      </p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="mb-8 space-y-4">
+      <div class="relative">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search resources..."
+          class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent"
+        />
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {allTags.map((tag) => (
+          <button
+            class="px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Resources Grid -->
+    <div class="grid grid-cols-1 gap-8">
+      {Object.entries(groupedResources).map(([category, items]) => (
+        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">{category}</h2>
+          </div>
+          <div class="p-6">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {items.map((resource) => (
+                <article class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-600">
+                  <div class="flex flex-col h-full">
+                    <div>
+                      <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">
+                        {resource.data.title}
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                        {resource.data.description}
+                      </p>
+                    </div>
+                    <div class="mt-auto">
+                      <div class="flex flex-wrap gap-2 mb-4">
+                        {resource.data.tags?.map((tag) => (
+                          <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div class="flex items-center justify-between">
+                        <a
+                          href={resource.data.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-200 gap-1 text-sm font-medium"
+                        >
+                          Visit Resource
+                        </a>
+                        {resource.data.free && (
+                          <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm rounded-full">
+                            Free
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+  </main>
+
+  <script>
+    // Search functionality
+    const searchInput = document.getElementById("search");
+    const resourceCards = document.querySelectorAll("article");
+
+    searchInput?.addEventListener("input", (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+
+      resourceCards.forEach((card) => {
+        const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+        const description = card.querySelector("p")?.textContent?.toLowerCase() || "";
+        const tags = Array.from(card.querySelectorAll(".flex-wrap span")).map(
+          (tag) => tag.textContent?.toLowerCase() || ""
+        );
+
+        const matches =
+          title.includes(searchTerm) ||
+          description.includes(searchTerm) ||
+          tags.some((tag) => tag.includes(searchTerm));
+
+        card.style.display = matches ? "block" : "none";
+      });
+    });
+
+    // Tag filtering
+    const tagButtons = document.querySelectorAll("button");
+    let activeTag: string | null = null;
+
+    tagButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tag = button.textContent?.toLowerCase() || "";
+
+        // Toggle active state
+        if (activeTag === tag) {
+          activeTag = null;
+          button.classList.remove("bg-blue-100", "dark:bg-blue-900", "text-blue-700", "dark:text-blue-300");
+          button.classList.add("bg-gray-100", "dark:bg-gray-800", "text-gray-700", "dark:text-gray-300");
+        } else {
+          // Reset all buttons
+          tagButtons.forEach((btn) => {
+            btn.classList.remove("bg-blue-100", "dark:bg-blue-900", "text-blue-700", "dark:text-blue-300");
+            btn.classList.add("bg-gray-100", "dark:bg-gray-800", "text-gray-700", "dark:text-gray-300");
+          });
+
+          // Set active button
+          activeTag = tag;
+          button.classList.remove("bg-gray-100", "dark:bg-gray-800", "text-gray-700", "dark:text-gray-300");
+          button.classList.add("bg-blue-100", "dark:bg-blue-900", "text-blue-700", "dark:text-blue-300");
+        }
+
+        // Filter resources
+        resourceCards.forEach((card) => {
+          const cardTags = Array.from(card.querySelectorAll(".flex-wrap span")).map(
+            (tag) => tag.textContent?.toLowerCase() || ""
+          );
+          card.style.display = !activeTag || cardTags.includes(activeTag) ? "block" : "none";
+        });
+      });
+    });
+  </script>
+</Layout>
