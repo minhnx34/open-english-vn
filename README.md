@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Open English Resources
+=======
+# My Astro Resources
+>>>>>>> e8999a9 (cmt)
 
 A curated collection of English learning resources for Vietnamese learners.
 
@@ -39,7 +43,11 @@ For detailed guidelines, please see our [Contributing Guide](CONTRIBUTING.md).
 1. Clone the repository
 2. Install dependencies: `npm install`
 3. Start the development server: `npm run dev`
+<<<<<<< HEAD
 4. Open [http://localhost:4321/open-english-vn/](http://localhost:4321/open-english-vn/) in your browser
+=======
+4. Open [http://localhost:4321](http://localhost:4321) in your browser
+>>>>>>> e8999a9 (cmt)
 
 ## 📝 License
 
@@ -58,7 +66,13 @@ MIT License - feel free to use this project for your own learning resources!
 
 ## 📫 Contact
 
+<<<<<<< HEAD
 Gian Nguyen - [@giannguyen](https://twitter.com/giannguyen) - giannguyen@example.com
 
 Project Link: [https://github.com/Gianguyen1234/open-english-vn](https://github.com/Gianguyen1234/open-english-vn)
 Live Site: [https://gianguyen1234.github.io/open-english-vn/](https://gianguyen1234.github.io/open-english-vn/)
+=======
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+
+Project Link: [https://github.com/yourusername/my-astro-resources](https://github.com/yourusername/my-astro-resources)
+>>>>>>> e8999a9 (cmt)
