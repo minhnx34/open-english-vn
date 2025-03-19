@@ -7,7 +7,8 @@ image: "/images/blog/english-grammar.jpg"
 tags: ["grammar", "common mistakes", "vietnamese learners", "english learning"]
 ---
 
-<div class="table-of-contents">
+<div class="table-of-contents"></div>
+
 ## Quick Navigation
 - [Subject-Verb Agreement](#subject-verb-agreement)
 - [Article Usage](#article-usage)
@@ -15,7 +16,7 @@ tags: ["grammar", "common mistakes", "vietnamese learners", "english learning"]
 - [Tense Usage](#tense-usage)
 - [Countable vs Uncountable Nouns](#countable-vs-uncountable-nouns)
 - [Practice Tips](#practice-tips)
-</div>
+
 
 ## Subject-Verb Agreement
 
@@ -23,17 +24,17 @@ tags: ["grammar", "common mistakes", "vietnamese learners", "english learning"]
 One of the fundamental rules in English is that the subject and verb must agree in number. This means singular subjects need singular verbs, and plural subjects need plural verbs.
 
 <div class="example-incorrect">
-❌ **Incorrect:**
+ ❌ <strong>Incorrect:</strong>
 - He play football every weekend.
 - The students in my class is very smart.
 </div>
 
 <div class="example-correct">
-✅ **Correct:**
+✅ <strong>Correct:</strong>
 - He plays football every weekend.
 - The students in my class are very smart.
 
-**Why?** In the present simple tense:
+<strong>Why?</strong> In the present simple tense:
 - Singular subjects (he/she/it) use verb + s
 - Plural subjects use the base form of the verb
 </div>
@@ -45,23 +46,23 @@ One of the fundamental rules in English is that the subject and verb must agree 
 Articles (a, an, the) are often challenging for Vietnamese speakers since Vietnamese doesn't have an equivalent system.
 
 <div class="example-incorrect">
-❌ **Incorrect:**
+ ❌ <strong>Incorrect:</strong>
 - I bought ∅ new phone yesterday.
 - She is ∅ best student in class.
 </div>
 
 <div class="example-correct">
-✅ **Correct:**
+✅ <strong>Correct:</strong>
 - I bought a new phone yesterday.
 - She is the best student in class.
 
-**Why?**
+<strong>Why?</strong>
 - Use "a/an" for singular countable nouns when mentioning something for the first time
 - Use "the" when referring to something specific or already mentioned
 </div>
 
 <div class="tip-card">
-💡 **Pro Tip:** Think of "the" as pointing to something specific, like when you point at something with your finger. If you can point at it specifically, you probably need "the".
+💡 <strong>Pro Tip:</strong> Think of "the" as pointing to something specific, like when you point at something with your finger. If you can point at it specifically, you probably need "the".
 </div>
 </div>
 
@@ -71,17 +72,17 @@ Articles (a, an, the) are often challenging for Vietnamese speakers since Vietna
 Prepositions in English often don't match directly with their Vietnamese counterparts.
 
 <div class="example-incorrect">
-❌ **Incorrect:**
+ ❌ <strong>Incorrect:</strong>
 - I will arrive to the airport at 3PM.
 - He is good in playing guitar.
 </div>
 
 <div class="example-correct">
-✅ **Correct:**
+✅ <strong>Correct:</strong>
 - I will arrive at the airport at 3PM.
 - He is good at playing guitar.
 
-**Common Patterns:**
+<strong>Common Patterns:</strong>
 - arrive at (a specific place)
 - good at (a skill)
 - different from (not different than/to)
@@ -95,17 +96,17 @@ Prepositions in English often don't match directly with their Vietnamese counter
 English has a more complex tense system compared to Vietnamese, which often leads to confusion.
 
 <div class="example-incorrect">
-❌ **Incorrect:**
+ ❌ <strong>Incorrect:</strong>
 - I live in Hanoi since 2010.
 - When I arrived home, she already left.
 </div>
 
 <div class="example-correct">
-✅ **Correct:**
+✅ <strong>Correct:</strong>
 - I have lived in Hanoi since 2010.
 - When I arrived home, she had already left.
 
-**Key Points:**
+<strong>Key Points:</strong>
 - Use present perfect for actions starting in the past and continuing to now
 - Use past perfect for actions completed before another past action
 </div>
@@ -117,17 +118,17 @@ English has a more complex tense system compared to Vietnamese, which often lead
 Understanding whether a noun is countable or uncountable affects article usage and verb agreement.
 
 <div class="example-incorrect">
-❌ **Incorrect:**
+ ❌ <strong>Incorrect:</strong>
 - I need some informations about the course.
 - I would like to buy a furniture for my room.
 </div>
 
 <div class="example-correct">
-✅ **Correct:**
+✅ <strong>Correct:</strong>
 - I need some information about the course.
 - I would like to buy a piece of furniture for my room.
 
-**Common Uncountable Nouns:**
+<strong>Common Uncountable Nouns:</strong>
 - information
 - furniture
 - advice
@@ -142,25 +143,25 @@ Understanding whether a noun is countable or uncountable affects article usage a
 <div class="grammar-section">
 To master these patterns, try these effective practice methods:
 
-1. **Daily Journal Writing**
+1. <strong>Daily Journal Writing</strong>
    - Write about your day using the patterns you've learned
    - Have a native speaker or teacher check your writing
 
-2. **Error Correction Exercise**
+2. <strong>Error Correction Exercise</strong>
    - Find mistakes in your own writing
    - Keep a log of your common mistakes
    - Practice correcting similar errors
 
-3. **Pattern Practice**
+3. <strong>Pattern Practice</strong>
    - Create your own examples using each pattern
    - Practice with a study partner
    - Use flashcards for common patterns
 
 <div class="tip-card">
-💡 **Remember:** Learning from mistakes is a natural part of language learning. Don't be afraid to make mistakes – they're opportunities to improve!
+💡 <strong>Remember:</strong> Learning from mistakes is a natural part of language learning. Don't be afraid to make mistakes – they're opportunities to improve!
 </div>
 </div>
 
 ---
 
-**Want to practice more?** Try creating sentences using these patterns and share them in the comments below! 
+<strong>Want to practice more?</strong> Try creating sentences using these patterns and share them in the comments below!
