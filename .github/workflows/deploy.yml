@@ -3,7 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["master"]  # ✅ Deploy when pushing to master
-
   workflow_dispatch:  # Allows manual deployment
 
 permissions:
@@ -40,26 +39,18 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # ✅ Ensure correct deployment path
+          path: ./dist  # ✅ Uploads build output for deployment
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: github-pages
-          path: ./dist  # ✅ Ensure dist/ is available before deploying
-
-      - name: Debug Dist Folder Before Deployment
-        run: ls -la dist  # ✅ Verify dist/ exists before deployment
+      - name: Checkout repository  # ✅ Ensures GitHub Pages has repo context
+        uses: actions/checkout@v4
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master  # ✅ Deploy directly from master
