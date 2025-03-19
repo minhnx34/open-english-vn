@@ -1,0 +1,60 @@
+---
+interface Props {
+  categories: string[];
+  selectedCategories?: string[];
+}
+
+const { categories, selectedCategories = [] } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2 mb-8 justify-center">
+  {categories.map((category) => (
+    <button
+      class={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+        selectedCategories.includes(category)
+          ? 'bg-blue-500 text-white'
+          : 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
+      }`}
+      data-category={category}
+    >
+      {category}
+    </button>
+  ))}
+</div>
+
+<script>
+  const categoryButtons = document.querySelectorAll('[data-category]');
+  const resourceCards = document.querySelectorAll('.resource-card');
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+      if (!category) return;
+
+      // Toggle button state
+      button.classList.toggle('bg-blue-500');
+      button.classList.toggle('text-white');
+      button.classList.toggle('bg-gray-100');
+      button.classList.toggle('dark:bg-gray-800');
+      button.classList.toggle('text-gray-800');
+      button.classList.toggle('dark:text-gray-200');
+
+      // Get all selected categories
+      const selectedCategories = Array.from(categoryButtons)
+        .filter(btn => btn.classList.contains('bg-blue-500'))
+        .map(btn => btn.getAttribute('data-category'));
+
+      // Filter resources
+      resourceCards.forEach((card) => {
+        const cardCategories = Array.from(card.querySelectorAll('span'))
+          .map(span => span.textContent?.toLowerCase() || '');
+        
+        const matchesCategory = 
+          selectedCategories.length === 0 ||
+          selectedCategories.some(cat => cardCategories.includes(cat?.toLowerCase() || ''));
+        
+        card.classList.toggle('hidden', !matchesCategory);
+      });
+    });
+  });
+</script> 

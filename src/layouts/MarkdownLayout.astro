@@ -1,0 +1,142 @@
+---
+import Layout from './Layout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+    <article class="max-w-4xl mx-auto px-4 py-8">
+        <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                {frontmatter.title}
+            </h1>
+            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <span class="font-medium">{frontmatter.author}</span>
+                <span class="mx-2">•</span>
+                <time datetime={frontmatter.pubDate.toISOString()}>
+                    {new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                    })}
+                </time>
+            </div>
+            {frontmatter.image && (
+                <img
+                    src={frontmatter.image}
+                    alt={frontmatter.title}
+                    class="w-full aspect-video object-cover rounded-xl shadow-lg mb-10"
+                />
+            )}
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl">
+                {frontmatter.description}
+            </p>
+            {frontmatter.tags && (
+                <div class="flex flex-wrap gap-2">
+                    {frontmatter.tags.map((tag: string) => (
+                        <span class="px-4 py-1.5 bg-gray-100 dark:bg-gray-800 text-sm rounded-full text-gray-600 dark:text-gray-300">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            )}
+        </header>
+
+        <div class="prose dark:prose-invert max-w-none prose-lg">
+            <slot />
+        </div>
+    </article>
+</Layout>
+
+<style is:global>
+    .prose {
+        @apply text-gray-700 dark:text-gray-300;
+    }
+    .prose h2 {
+        @apply text-3xl font-bold mt-16 mb-8 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-4;
+    }
+    .prose h3 {
+        @apply text-2xl font-semibold mt-12 mb-6 text-gray-800 dark:text-gray-100;
+    }
+    .prose h4 {
+        @apply text-xl font-semibold mt-8 mb-4 text-gray-800 dark:text-gray-100;
+    }
+    .prose p {
+        @apply mb-6 leading-relaxed text-lg text-gray-600 dark:text-gray-300;
+    }
+    .prose ul {
+        @apply list-none pl-0 mb-8 space-y-4;
+    }
+    .prose ul li {
+        @apply pl-8 relative text-lg;
+    }
+    .prose ul li::before {
+        @apply absolute left-0 text-blue-500 dark:text-blue-400 font-bold;
+        content: "•";
+    }
+    .prose ol {
+        @apply list-none pl-0 mb-8 space-y-4;
+        counter-reset: item;
+    }
+    .prose ol li {
+        @apply pl-8 relative text-lg;
+        counter-increment: item;
+    }
+    .prose ol li::before {
+        @apply absolute left-0 text-blue-500 dark:text-blue-400 font-bold;
+        content: counter(item) ".";
+    }
+    .prose a {
+        @apply text-blue-600 dark:text-blue-400 hover:underline font-medium;
+    }
+    .prose code:not(pre code) {
+        @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono text-gray-800 dark:text-gray-200;
+    }
+    .prose pre {
+        @apply bg-gray-100 dark:bg-gray-800 p-6 rounded-lg overflow-x-auto mb-8 shadow-md;
+    }
+    .prose pre code {
+        @apply bg-transparent p-0 text-gray-800 dark:text-gray-200;
+    }
+    .prose blockquote {
+        @apply border-l-4 border-blue-500 dark:border-blue-400 pl-6 py-2 my-8 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg;
+    }
+    .prose img {
+        @apply rounded-xl shadow-lg my-10;
+    }
+    .prose strong {
+        @apply font-semibold text-gray-900 dark:text-white;
+    }
+    .prose em {
+        @apply italic text-gray-700 dark:text-gray-300;
+    }
+    .prose hr {
+        @apply my-12 border-gray-200 dark:border-gray-700;
+    }
+    .example-incorrect {
+        @apply bg-red-50 dark:bg-red-900/20 p-4 rounded-lg mb-4 border-l-4 border-red-500 dark:border-red-400;
+    }
+    .example-correct {
+        @apply bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-8 border-l-4 border-green-500 dark:border-green-400;
+    }
+    .grammar-section {
+        @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12;
+    }
+    .tip-card {
+        @apply bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-6;
+    }
+    .table-of-contents {
+        @apply bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 mb-8 sticky top-4;
+    }
+    .table-of-contents ul {
+        @apply list-none pl-0 space-y-2;
+    }
+    .table-of-contents ul li {
+        @apply pl-0;
+    }
+    .table-of-contents ul li::before {
+        content: none;
+    }
+    .table-of-contents a {
+        @apply text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 no-underline;
+    }
+</style> 

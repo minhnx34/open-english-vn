@@ -1,11 +1,96 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import ResourceCard from '../components/ResourceCard.astro';
+import SearchBar from '../components/SearchBar.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Categories specific to English learning
+const categories = [
+	'Grammar',
+	'Speaking',
+	'Listening',
+	'Writing',
+	'IELTS',
+	'TOEFL',
+	'Vocabulary',
+	'Beginner',
+	'Intermediate',
+	'Advanced'
+];
+
+// Sample English learning resources
+const resources = [
+	{
+		title: 'TiengAnh.com.vn',
+		description: 'Comprehensive English learning platform with lessons for all levels, focusing on Vietnamese learners.',
+		url: 'https://tienganh.com.vn',
+		thumbnail: '/images/placeholders/tienganh.jpg',
+		categories: ['Grammar', 'Beginner', 'Intermediate']
+	},
+	{
+		title: 'IELTS Fighter',
+		description: 'IELTS preparation materials and practice tests created by Vietnamese teachers.',
+		url: 'https://ieltsfighter.com',
+		thumbnail: '/images/placeholders/ielts.jpg',
+		categories: ['IELTS', 'Advanced']
+	},
+	{
+		title: 'Speak Like Native',
+		description: 'Speaking practice platform focusing on natural English conversation for Vietnamese learners.',
+		url: 'https://speaklikenative.vn',
+		thumbnail: '/images/placeholders/speaking.jpg',
+		categories: ['Speaking', 'Intermediate']
+	}
+];
+
+// Pagination settings
+const ITEMS_PER_PAGE = 9;
+const currentPage = 1; // This will be dynamic in the future
+const totalPages = Math.ceil(resources.length / ITEMS_PER_PAGE);
+const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+const endIndex = startIndex + ITEMS_PER_PAGE;
+const paginatedResources = resources.slice(startIndex, endIndex);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Awesome Vietnamese English Learning Resources">
+	<div class="text-center mb-12">
+		<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+			Awesome Vietnamese English Learning Resources
+		</h1>
+		<p class="text-xl text-gray-600 dark:text-gray-300">
+			A curated collection of English learning websites created by Vietnamese developers
+		</p>
+	</div>
+
+	<SearchBar placeholder="Search for resources by name, description, or category..." />
+	<CategoryFilter categories={categories} />
+
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+		{paginatedResources.map((resource) => (
+			<ResourceCard
+				title={resource.title}
+				description={resource.description}
+				url={resource.url}
+				thumbnail={resource.thumbnail}
+				categories={resource.categories}
+			/>
+		))}
+	</div>
+
+	{totalPages > 1 && (
+		<div class="flex justify-center mt-8 space-x-2">
+			{Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+				<a
+					href={`?page=${page}`}
+					class={`px-4 py-2 rounded-md ${
+						page === currentPage
+							? 'bg-blue-600 text-white'
+							: 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
+					}`}
+				>
+					{page}
+				</a>
+			))}
+		</div>
+	)}
 </Layout>

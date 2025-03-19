@@ -1,0 +1,147 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  logo?: string;
+  thumbnail?: string;
+  categories: string[];
+}
+
+const { title, description, url, logo, thumbnail, categories } = Astro.props;
+---
+
+<article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+  <a href={url} target="_blank" rel="noopener noreferrer" class="block">
+    {thumbnail && (
+      <div class="relative h-48 overflow-hidden">
+        <img
+          src={thumbnail}
+          alt={`${title} thumbnail`}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    )}
+    <div class="p-4">
+      <div class="flex items-center gap-2 mb-2">
+        {logo && (
+          <img
+            src={logo}
+            alt={`${title} logo`}
+            class="w-8 h-8 object-contain"
+          />
+        )}
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          {title}
+        </h3>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300 mb-3">
+        {description}
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {categories.map((category) => (
+          <span class="px-2 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full">
+            {category}
+          </span>
+        ))}
+      </div>
+    </div>
+  </a>
+  <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+    <div class="flex justify-between items-center">
+      <button
+        class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+        data-resource-id={url}
+      >
+        <span class="sr-only">Bookmark</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+          />
+        </svg>
+      </button>
+      <div class="flex gap-2">
+        <button
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          data-share="twitter"
+        >
+          <span class="sr-only">Share on Twitter</span>
+          <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+          </svg>
+        </button>
+        <button
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          data-share="linkedin"
+        >
+          <span class="sr-only">Share on LinkedIn</span>
+          <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-.88-.06-1.601-1-1.601-1 0-1.16.781-1.16 1.601v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</article>
+
+<script>
+  // Bookmark functionality
+  document.querySelectorAll('[data-resource-id]').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const resourceId = button.getAttribute('data-resource-id');
+      const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]');
+      
+      if (bookmarks.includes(resourceId)) {
+        const newBookmarks = bookmarks.filter((id: string) => id !== resourceId);
+        localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
+        button.classList.remove('text-yellow-500');
+      } else {
+        bookmarks.push(resourceId);
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+        button.classList.add('text-yellow-500');
+      }
+    });
+  });
+
+  // Share functionality
+  document.querySelectorAll('[data-share]').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const platform = button.getAttribute('data-share');
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      
+      let shareUrl;
+      switch (platform) {
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+          break;
+        case 'linkedin':
+          shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+          break;
+      }
+      
+      if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+      }
+    });
+  });
+</script> 

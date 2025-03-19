@@ -1,48 +1,63 @@
-# Astro Starter Kit: Basics
+# My Astro Resources
 
-```sh
-npm create astro@latest -- --template basics
-```
+A curated collection of English learning resources for Vietnamese learners.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🌟 Features
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- 📚 Curated collection of English learning resources
+- 🎯 Categorized by skill level and topic
+- 🌙 Dark mode support
+- 📱 Mobile responsive design
+- 🔍 Easy to navigate interface
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🤝 Contributing
 
-## 🚀 Project Structure
+We welcome contributions from developers who create English learning resources! Here's how you can contribute:
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Fork this repository
+2. Create a new branch for your resource
+3. Add your resource using the template in `src/content/resources/_template.md`
+4. Submit a pull request
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+For detailed guidelines, please see our [Contributing Guide](CONTRIBUTING.md).
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 📖 Categories
 
-## 🧞 Commands
+- Grammar
+- Speaking
+- Listening
+- Writing
+- IELTS
+- TOEFL
+- Vocabulary
+- Beginner
+- Intermediate
+- Advanced
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Getting Started
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Open [http://localhost:4321](http://localhost:4321) in your browser
 
-## 👀 Want to learn more?
+## 📝 License
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT License - feel free to use this project for your own learning resources!
+
+## 🛠️ Built With
+
+- [Astro](https://astro.build) - The web framework for content-driven websites
+- [TailwindCSS](https://tailwindcss.com) - A utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org) - JavaScript with syntax for types
+
+## 🙏 Acknowledgments
+
+- Thanks to all contributors who have helped shape this project
+- Inspired by various resource collections in the web development community
+
+## 📫 Contact
+
+Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+
+Project Link: [https://github.com/yourusername/my-astro-resources](https://github.com/yourusername/my-astro-resources)
