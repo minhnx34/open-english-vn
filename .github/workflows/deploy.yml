@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write
+  id-token: write  # ✅ Required for GitHub Pages deployment
 
 concurrency:
   group: "pages"
@@ -34,24 +34,20 @@ jobs:
         run: npm run build  # ✅ Ensure dist/ is created before deployment
 
       - name: Debug Build Output
-        run: ls -la && ls -la dist  # ✅ List files to check if dist/ exists
+        run: ls -la && ls -la dist  # ✅ Check if dist/ exists
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist  # ✅ Uploads build output for deployment
+          path: dist  # ✅ Upload `dist/` to GitHub Pages
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}  # ✅ Auto-generate GitHub Pages URL
     steps:
-      - name: Checkout repository  # ✅ Ensures GitHub Pages has repo context
-        uses: actions/checkout@v4
-
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: master  # ✅ Deploy directly from master
-          folder: dist  # ✅ Ensure only built files are deployed
+        id: deployment
+        uses: actions/deploy-pages@v2  # ✅ Official GitHub Pages deployment
