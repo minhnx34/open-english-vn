@@ -1,0 +1,9 @@
+{
+  "title": "Resource Name",
+  "description": "A brief description of your resource",
+  "url": "https://your-website.com",
+  "image": "/open-english-vn/images/resources/resource-name.png",
+  "category": "Grammar",
+  "tags": ["tag1", "tag2"],
+  "free": true
+}
