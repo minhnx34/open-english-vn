@@ -14,20 +14,16 @@ Thank you for your interest in contributing to My Astro Resources! This guide wi
    - Follow this template:
 
 ```markdown
----
-title: "Your Resource Name"
-description: "A brief description of your resource"
-url: "https://your-website.com"
-category: "Grammar" # or "Speaking", "Listening", "Writing", "IELTS", "TOEFL", "Vocabulary", "Beginner", "Intermediate", "Advanced"
-tags: ["tag1", "tag2"]
-creator: "Your Name"
----
+{
+  "title": "Resource Name",
+  "description": "A brief description of your resource",
+  "url": "https://your-website.com",
+  "image": "/open-english-vn/images/resources/resource-name.png",
+  "category": "Grammar",
+  "tags": ["tag1", "tag2"],
+  "free": true
+}
 
-Your detailed description here. Explain:
-- What makes your resource unique
-- How it helps Vietnamese learners
-- Key features
-- How to use it effectively
 ```
 
 3. **Submit a Pull Request**
