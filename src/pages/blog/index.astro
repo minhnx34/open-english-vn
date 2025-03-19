@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 export const prerender = true;
 
 const posts = await getCollection('blog');
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Blog">
@@ -23,7 +24,7 @@ const posts = await getCollection('blog');
 					)}
 					<div class="p-6">
 						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-							<a href={`/blog/${post.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400">
+							<a href={`${base}/blog/${post.slug}`} class="hover:text-blue-600 dark:hover:text-blue-400">
 								{post.data.title}
 							</a>
 						</h2>

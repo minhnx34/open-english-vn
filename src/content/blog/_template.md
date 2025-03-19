@@ -1,36 +1,28 @@
 ---
-title: "Your Blog Post Title"
+title: "Your Blog Title"
 description: "A brief description of your blog post"
-pubDate: 2024-03-20
+pubDate: 2024-03-19
 author: "Your Name"
-image: "/images/blog/default.jpg"
-tags: ["blog", "template"]
+image: "/open-english-vn/images/blog/default.jpg"
+tags: ["tag1", "tag2"]
 ---
 
-# Your Blog Post Title
+## Introduction
 
-Write your blog post content here using Markdown syntax.
+Your introduction text here.
 
-## Subheading
+## Main Content
 
-You can use various Markdown features:
+Your main content here.
 
-- Lists
-- **Bold text**
-- *Italic text*
-- [Links](https://example.com)
+### Subsection
 
-### Code blocks
-
-```javascript
-const hello = "world";
-console.log(hello);
-```
+More content...
 
 ## Images
 
-![Alt text](/images/blog/example.jpg)
+![Alt text](/open-english-vn/images/blog/example.jpg)
 
 ## Conclusion
 
-Wrap up your blog post here. 
+Your conclusion here. 

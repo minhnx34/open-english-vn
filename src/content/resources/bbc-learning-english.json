@@ -2,6 +2,7 @@
   "title": "BBC Learning English",
   "description": "Free English learning resources from the BBC, including lessons, grammar explanations, videos, and interactive exercises suitable for all levels.",
   "url": "https://www.bbc.co.uk/learningenglish",
+  "image": "/open-english-vn/images/resources/bbc-learning-english.png",
   "category": "General",
   "tags": ["listening", "grammar", "vocabulary", "pronunciation", "news"],
   "free": true

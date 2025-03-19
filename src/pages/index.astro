@@ -1,96 +1,802 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ResourceCard from '../components/ResourceCard.astro';
-import SearchBar from '../components/SearchBar.astro';
-import CategoryFilter from '../components/CategoryFilter.astro';
+import { getCollection } from 'astro:content';
 
-// Categories specific to English learning
-const categories = [
-	'Grammar',
-	'Speaking',
-	'Listening',
-	'Writing',
-	'IELTS',
-	'TOEFL',
-	'Vocabulary',
-	'Beginner',
-	'Intermediate',
-	'Advanced'
-];
+interface Skill {
+	name: string;
+	completed?: boolean;
+}
 
-// Sample English learning resources
-const resources = [
+interface DetailedSkill {
+	name: string;
+	description: string;
+	examples: string[];
+	resources: string[];
+	tips: string[];
+}
+
+interface Step {
+	title: string;
+	description: string;
+	skills: string[];
+	duration: string;
+	sequence: number;
+	dependencies: string[];
+	detailedSkills: DetailedSkill[];
+}
+
+interface LevelStep {
+	level: string;
+	color: string;
+	description: string;
+	steps: Step[];
+}
+
+// Get all resources and make them available to the client
+const resources = await getCollection('resources');
+
+// Initialize roadmap data
+const roadmapSteps: LevelStep[] = [
 	{
-		title: 'TiengAnh.com.vn',
-		description: 'Comprehensive English learning platform with lessons for all levels, focusing on Vietnamese learners.',
-		url: 'https://tienganh.com.vn',
-		thumbnail: '/images/placeholders/tienganh.jpg',
-		categories: ['Grammar', 'Beginner', 'Intermediate']
+		level: "Foundation",
+		color: "emerald",
+		description: "Build your English foundation with essential skills",
+		steps: [
+			{
+				title: "Pronunciation & Listening",
+				description: "Master English sounds and basic listening",
+				skills: [
+					"IPA & Phonics",
+					"Word stress & rhythm",
+					"Connected speech",
+					"Basic listening comprehension"
+				],
+				duration: "2-3 months",
+				sequence: 1,
+				dependencies: [],
+				detailedSkills: [
+					{
+						name: "IPA & Phonics",
+						description: "Learn the International Phonetic Alphabet and basic sound patterns",
+						examples: [
+							"Vowel sounds: /æ/ (cat), /ə/ (about)",
+							"Consonant sounds: /θ/ (think), /ð/ (this)",
+							"Sound combinations: /tr/, /dr/, /st/"
+						],
+						resources: ["Balloon Phonics", "Starfall's ABCs"],
+						tips: [
+							"Practice each sound in isolation first",
+							"Record yourself and compare with native speakers",
+							"Focus on sounds that don't exist in Vietnamese"
+						]
+					},
+					{
+						name: "Word stress & rhythm",
+						description: "Master the natural stress patterns of English words and sentences",
+						examples: [
+							"Two-syllable words: PREsent (n) vs preSENT (v)",
+							"Sentence stress: I WANT to GO to the STORE",
+							"Rhythm patterns in questions"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Clap or tap the rhythm while speaking",
+							"Listen to English songs and poetry",
+							"Practice with tongue twisters"
+						]
+					},
+					// ... other detailed skills ...
+				]
+			},
+			{
+				title: "Core Vocabulary",
+				description: "Learn essential words for daily life",
+				skills: [
+					"500 most common words",
+					"Basic phrases & expressions",
+					"Numbers & time",
+					"Daily life vocabulary"
+				],
+				duration: "2-3 months",
+				sequence: 2,
+				dependencies: ["Pronunciation & Listening"],
+				detailedSkills: [
+					{
+						name: "500 most common words",
+						description: "Master the most frequently used English words",
+						examples: [
+							"Basic verbs: be, have, do, go",
+							"Common nouns: house, food, time",
+							"Essential adjectives: good, bad, big, small"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Learn words in context",
+							"Use flashcards for practice",
+							"Focus on high-frequency words first"
+						]
+					},
+					{
+						name: "Basic phrases & expressions",
+						description: "Learn everyday expressions and common phrases",
+						examples: [
+							"Excuse me, could you help me?",
+							"I'd like to...",
+							"How do you say... in English?"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Practice in real situations",
+							"Learn phrases as complete units",
+							"Focus on natural pronunciation"
+						]
+					}
+				]
+			},
+			{
+				title: "Basic Grammar",
+				description: "Learn fundamental sentence patterns",
+				skills: [
+					"Subject-verb-object",
+					"Present & past tenses",
+					"Basic questions",
+					"Common prepositions"
+				],
+				duration: "3-4 months",
+				sequence: 3,
+				dependencies: ["Core Vocabulary"],
+				detailedSkills: [
+					{
+						name: "Subject-verb-object",
+						description: "Master basic English sentence structure",
+						examples: [
+							"I eat breakfast",
+							"She reads books",
+							"They play football"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Start with simple sentences",
+							"Practice with different subjects",
+							"Learn common verb forms"
+						]
+					}
+				]
+			}
+		]
 	},
 	{
-		title: 'IELTS Fighter',
-		description: 'IELTS preparation materials and practice tests created by Vietnamese teachers.',
-		url: 'https://ieltsfighter.com',
-		thumbnail: '/images/placeholders/ielts.jpg',
-		categories: ['IELTS', 'Advanced']
+		level: "Practical Skills",
+		color: "indigo",
+		description: "Develop practical communication abilities",
+		steps: [
+			{
+				title: "Daily Communication",
+				description: "Handle everyday conversations confidently",
+				skills: [
+					"Small talk & greetings",
+					"Shopping & dining out",
+					"Giving directions",
+					"Making appointments"
+				],
+				duration: "3-4 months",
+				sequence: 1,
+				dependencies: [],
+				detailedSkills: [
+					{
+						name: "Small talk & greetings",
+						description: "Master common conversation starters and greetings",
+						examples: [
+							"How's it going?",
+							"Nice weather today, isn't it?",
+							"Have a great weekend!"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Practice with different situations",
+							"Learn cultural differences in greetings",
+							"Use appropriate formality levels"
+						]
+					},
+					// ... add similar detailed skills for other skills in this step
+				]
+			},
+			{
+				title: "Intermediate Grammar",
+				description: "Express more complex ideas",
+				skills: [
+					"Perfect tenses",
+					"Modal verbs",
+					"Conditionals (0,1,2)",
+					"Relative clauses"
+				],
+				duration: "4-5 months",
+				sequence: 2,
+				dependencies: ["Daily Communication"],
+				detailedSkills: [
+					{
+						name: "Perfect tenses",
+						description: "Master present perfect, past perfect, and future perfect tenses",
+						examples: [
+							"I have lived here for 5 years",
+							"She had finished before I arrived",
+							"They will have completed it by then"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Learn the time expressions",
+							"Practice with real-life situations",
+							"Compare with simple tenses"
+						]
+					}
+				]
+			},
+			{
+				title: "Essential Writing",
+				description: "Write clear messages and texts",
+				skills: [
+					"Emails & messages",
+					"Social media posts",
+					"Short stories",
+					"Personal blog posts"
+				],
+				duration: "3-4 months",
+				sequence: 3,
+				dependencies: ["Intermediate Grammar"],
+				detailedSkills: [
+					{
+						name: "Emails & messages",
+						description: "Write effective professional and personal emails",
+						examples: [
+							"Formal business emails",
+							"Casual friend messages",
+							"Meeting arrangements"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Use proper email format",
+							"Learn common phrases",
+							"Practice different styles"
+						]
+					}
+				]
+			}
+		]
 	},
 	{
-		title: 'Speak Like Native',
-		description: 'Speaking practice platform focusing on natural English conversation for Vietnamese learners.',
-		url: 'https://speaklikenative.vn',
-		thumbnail: '/images/placeholders/speaking.jpg',
-		categories: ['Speaking', 'Intermediate']
+		level: "Advanced Skills",
+		color: "rose",
+		description: "Master advanced English for academic and professional success",
+		steps: [
+			{
+				title: "Test Preparation",
+				description: "Prepare for international exams",
+				skills: [
+					"IELTS strategies (6.5+)",
+					"TOEFL techniques",
+					"Academic vocabulary",
+					"Test-taking skills"
+				],
+				duration: "4-6 months",
+				sequence: 1,
+				dependencies: [],
+				detailedSkills: [
+					{
+						name: "IELTS strategies (6.5+)",
+						description: "Master strategies for achieving a high IELTS score",
+						examples: [
+							"Time management techniques",
+							"Question types analysis",
+							"Writing task structures"
+						],
+						resources: ["IELTS Fighter"],
+						tips: [
+							"Practice with official materials",
+							"Focus on weak areas",
+							"Take mock tests regularly"
+						]
+					}
+				]
+			},
+			{
+				title: "Business English",
+				description: "Succeed in professional environments",
+				skills: [
+					"Meeting participation",
+					"Business writing",
+					"Presentations",
+					"Negotiations"
+				],
+				duration: "4-5 months",
+				sequence: 2,
+				dependencies: ["Test Preparation"],
+				detailedSkills: [
+					{
+						name: "Meeting participation",
+						description: "Learn to effectively participate in business meetings",
+						examples: [
+							"Expressing opinions professionally",
+							"Making suggestions",
+							"Agreeing and disagreeing politely"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Learn meeting vocabulary",
+							"Practice active listening",
+							"Use appropriate formality"
+						]
+					}
+				]
+			},
+			{
+				title: "Native-Like Fluency",
+				description: "Achieve natural English communication",
+				skills: [
+					"Idiomatic expressions",
+					"Cultural references",
+					"Accent reduction",
+					"Natural conversation"
+				],
+				duration: "Ongoing",
+				sequence: 3,
+				dependencies: ["Business English"],
+				detailedSkills: [
+					{
+						name: "Idiomatic expressions",
+						description: "Master common English idioms and expressions",
+						examples: [
+							"It's raining cats and dogs",
+							"Break a leg",
+							"Hit the books"
+						],
+						resources: ["BBC Learning English"],
+						tips: [
+							"Learn expressions in context",
+							"Practice with native speakers",
+							"Watch English movies and TV shows"
+						]
+					}
+				]
+			}
+		]
 	}
 ];
 
-// Pagination settings
-const ITEMS_PER_PAGE = 9;
-const currentPage = 1; // This will be dynamic in the future
-const totalPages = Math.ceil(resources.length / ITEMS_PER_PAGE);
-const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-const endIndex = startIndex + ITEMS_PER_PAGE;
-const paginatedResources = resources.slice(startIndex, endIndex);
+// Add progress tracking
+const storedProgress = typeof localStorage !== 'undefined' ? localStorage.getItem('learningProgress') : null;
+const initialProgress: Record<string, boolean> = storedProgress ? JSON.parse(storedProgress) : {};
 ---
 
-<Layout title="Awesome Vietnamese English Learning Resources">
-	<div class="text-center mb-12">
-		<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-			Awesome Vietnamese English Learning Resources
+<Layout title="English Learning Roadmap | OpenEnglishVN">
+	<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+		<div class="text-center mb-16">
+			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+				Master English Step by Step
 		</h1>
-		<p class="text-xl text-gray-600 dark:text-gray-300">
-			A curated collection of English learning websites created by Vietnamese developers
+			<p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+				A comprehensive roadmap designed specifically for Vietnamese learners to achieve English fluency
 		</p>
 	</div>
 
-	<SearchBar placeholder="Search for resources by name, description, or category..." />
-	<CategoryFilter categories={categories} />
-
-	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		{paginatedResources.map((resource) => (
-			<ResourceCard
-				title={resource.title}
-				description={resource.description}
-				url={resource.url}
-				thumbnail={resource.thumbnail}
-				categories={resource.categories}
-			/>
+		<!-- Progress Overview -->
+		<div class="mb-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+			{roadmapSteps.map((level) => (
+				<div class={`bg-${level.color}-50 dark:bg-${level.color}-900/10 rounded-xl p-6`}>
+					<div class="flex items-center justify-between mb-4">
+						<h3 class={`text-lg font-semibold text-${level.color}-700 dark:text-${level.color}-300`}>
+							{level.level}
+						</h3>
+						<span class="progress-percentage text-sm font-medium text-gray-600 dark:text-gray-400">
+							0%
+						</span>
+					</div>
+					<div class={`w-full h-2 bg-${level.color}-100 dark:bg-${level.color}-900/30 rounded-full overflow-hidden`}>
+						<div class={`progress-bar h-full bg-${level.color}-500 rounded-full w-0 transition-all duration-500`}></div>
+					</div>
+				</div>
 		))}
 	</div>
 
-	{totalPages > 1 && (
-		<div class="flex justify-center mt-8 space-x-2">
-			{Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-				<a
-					href={`?page=${page}`}
-					class={`px-4 py-2 rounded-md ${
-						page === currentPage
-							? 'bg-blue-600 text-white'
-							: 'bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
-					}`}
-				>
-					{page}
-				</a>
+		<!-- Learning Path Guide -->
+		<div class="mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+			<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Suggested Learning Path</h2>
+			<p class="text-gray-600 dark:text-gray-300 mb-6">
+				Follow this recommended order to maximize your learning efficiency. Each step builds upon previous knowledge.
+			</p>
+			<div class="grid gap-8 md:grid-cols-3">
+				{roadmapSteps.map((level) => (
+					<div>
+						<h3 class={`text-lg font-semibold text-${level.color}-600 dark:text-${level.color}-400 mb-3`}>
+							{level.level}
+						</h3>
+						<ol class="space-y-3">
+							{level.steps.map((step) => (
+								<li class="flex items-start gap-3">
+									<span class={`flex-shrink-0 w-6 h-6 rounded-full bg-${level.color}-100 dark:bg-${level.color}-900/30 flex items-center justify-center text-sm font-medium text-${level.color}-600 dark:text-${level.color}-400`}>
+										{step.sequence}
+									</span>
+									<div>
+										<p class="font-medium text-gray-900 dark:text-white">{step.title}</p>
+										{step.dependencies.length > 0 && (
+											<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+												Prerequisites: {step.dependencies.join(", ")}
+											</p>
+										)}
+									</div>
+								</li>
+							))}
+						</ol>
+					</div>
+				))}
+			</div>
+		</div>
+
+		<div class="space-y-24">
+			{roadmapSteps.map((level, levelIndex) => (
+				<div class="relative">
+					{levelIndex > 0 && (
+						<div class="absolute top-0 left-16 -mt-20 w-1 h-20 bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-full"></div>
+					)}
+					<div class="relative">
+						<div class="flex items-center mb-8 gap-6">
+							<div class={`flex items-center justify-center w-32 h-32 rounded-2xl bg-${level.color}-100 dark:bg-${level.color}-900/30 shadow-lg`}>
+								<span class={`text-${level.color}-600 dark:text-${level.color}-300 text-2xl font-bold`}>{level.level}</span>
+							</div>
+							<div>
+								<h2 class="text-2xl font-bold text-gray-900 dark:text-white">{level.level}</h2>
+								<p class="text-gray-600 dark:text-gray-300 mt-1">{level.description}</p>
+							</div>
+						</div>
+						<div class="grid gap-8 md:grid-cols-3">
+							{level.steps.map((step, stepIndex) => (
+								<div 
+									class={`group bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-t-4 border-${level.color}-500 hover:shadow-xl transition-all duration-300 cursor-pointer roadmap-step`}
+									data-level={levelIndex}
+									data-step={stepIndex}
+								>
+									<div class="flex justify-between items-start mb-4">
+										<div class="flex items-center gap-3">
+											<span class={`flex-shrink-0 w-6 h-6 rounded-full bg-${level.color}-100 dark:bg-${level.color}-900/30 flex items-center justify-center text-sm font-medium text-${level.color}-600 dark:text-${level.color}-400`}>
+												{step.sequence}
+											</span>
+											<h3 class="text-xl font-bold text-gray-900 dark:text-white">{step.title}</h3>
+										</div>
+										<span class={`text-sm font-medium text-${level.color}-600 dark:text-${level.color}-400 bg-${level.color}-50 dark:bg-${level.color}-900/20 px-3 py-1 rounded-full`}>
+											{step.duration}
+										</span>
+									</div>
+									<p class="text-gray-600 dark:text-gray-300 mb-4">{step.description}</p>
+									{step.dependencies.length > 0 && (
+										<div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+											Prerequisites: {step.dependencies.join(", ")}
+										</div>
+									)}
+									<ul class="space-y-3">
+										{step.skills.map((skill) => (
+											<li class="flex items-center justify-between text-gray-700 dark:text-gray-300 group-hover:transform group-hover:translate-x-1 transition-transform duration-300 skill-item">
+												<div class="flex items-center">
+													<svg class={`w-5 h-5 mr-3 text-${level.color}-500`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+													</svg>
+													<span class="skill-text">{skill}</span>
+												</div>
+												<button
+													class="skill-checkbox w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 hover:border-green-500 dark:hover:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+													data-level={levelIndex}
+													data-step={stepIndex}
+													data-skill={skill}
+												></button>
+											</li>
+										))}
+									</ul>
+
+									<!-- Expandable Detail View -->
+									<div class="detailed-view hidden fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center p-4">
+										<div class="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+											<div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 flex justify-between items-center">
+												<div>
+													<h3 class="text-2xl font-bold text-gray-900 dark:text-white">{step.title}</h3>
+													<p class="text-gray-600 dark:text-gray-300 mt-1">{step.description}</p>
+												</div>
+												<button class="close-detail text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+													<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+													</svg>
+												</button>
+											</div>
+											<div class="p-6 space-y-8">
+												{step.detailedSkills?.map((skill) => (
+													<div class="border-b border-gray-200 dark:border-gray-700 last:border-0 pb-8 last:pb-0">
+														<h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">{skill.name}</h4>
+														<p class="text-gray-600 dark:text-gray-300 mb-4">{skill.description}</p>
+														
+														<div class="grid gap-6 md:grid-cols-2">
+															<div>
+																<h5 class="font-medium text-gray-900 dark:text-white mb-2">Examples</h5>
+																<ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+																	{skill.examples.map((example) => (
+																		<li>{example}</li>
+																	))}
+																</ul>
+															</div>
+															<div>
+																<h5 class="font-medium text-gray-900 dark:text-white mb-2">Learning Tips</h5>
+																<ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+																	{skill.tips.map((tip) => (
+																		<li>{tip}</li>
+																	))}
+																</ul>
+															</div>
+														</div>
+
+														<div class="mt-6">
+															<h5 class="font-medium text-gray-900 dark:text-white mb-2">Recommended Resources</h5>
+															<div class="flex flex-wrap gap-2">
+																{skill.resources.map((resource) => (
+																	<span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-full text-sm">
+																		{resource}
+																	</span>
+																))}
+															</div>
+														</div>
+													</div>
+												))}
+
+												<!-- Progress Section -->
+												<div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+													<h4 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Your Progress</h4>
+													<div class="space-y-4">
+														{step.skills.map((skill) => (
+															<div class="flex items-center justify-between">
+																<span class="text-gray-600 dark:text-gray-300">{skill}</span>
+																<button
+																	class="skill-checkbox w-6 h-6 rounded border-2 border-gray-300 dark:border-gray-600 hover:border-green-500 dark:hover:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+																	data-level={levelIndex}
+																	data-step={stepIndex}
+																	data-skill={skill}
+																></button>
+															</div>
+														))}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
 			))}
 		</div>
-	)}
+
+		<div class="mt-20 text-center">
+			<a
+				href="/open-english-vn/resources"
+				class="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl"
+			>
+				<span class="text-lg font-medium">Start Your Learning Journey</span>
+				<svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+				</svg>
+			</a>
+		</div>
+	</main>
 </Layout>
+
+<!-- Make data available to client-side JavaScript -->
+<script define:vars={{ roadmapSteps, resources, initialProgress }}>
+	// Client-side state
+	let progress = initialProgress;
+	
+	// Initialize on page load
+	document.addEventListener('DOMContentLoaded', () => {
+		updateCheckboxes();
+		updateProgressBars();
+		initializeTooltips();
+		initializeDetailViews();
+	});
+
+	// Update checkboxes based on progress
+	function updateCheckboxes() {
+		document.querySelectorAll('.skill-checkbox').forEach((checkbox) => {
+			const element = checkbox;
+			const level = element.dataset.level;
+			const step = element.dataset.step;
+			const skill = element.dataset.skill;
+			
+			if (level && step && skill) {
+				const key = `${level}-${step}-${skill}`;
+				if (progress[key]) {
+					element.classList.add('bg-green-500');
+				}
+			}
+		});
+	}
+
+	// Initialize tooltips and resource indicators
+	function initializeTooltips() {
+		document.querySelectorAll('.skill-item').forEach((skillItem) => {
+			const skillText = skillItem.querySelector('.skill-text')?.textContent?.toLowerCase();
+			if (skillText) {
+				const matchingResources = resources.filter(resource => 
+					resource.data.tags.some(tag => skillText.includes(tag.toLowerCase())) ||
+					skillText.includes(resource.data.category.toLowerCase())
+				);
+
+				if (matchingResources.length > 0) {
+					// Add resource count indicator
+					const indicator = document.createElement('span');
+					indicator.className = `ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300`;
+					indicator.textContent = matchingResources.length.toString();
+					skillItem.querySelector('.skill-text')?.parentElement?.appendChild(indicator);
+
+					// Add tooltip
+					const tooltip = document.createElement('div');
+					tooltip.className = 'skill-tooltip hidden absolute z-50 w-64 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 text-sm';
+					tooltip.innerHTML = `
+						<h4 class="font-semibold mb-2">Learning Resources:</h4>
+						<ul class="space-y-2">
+							${matchingResources.map(resource => `
+								<a href="${resource.data.url}" target="_blank" rel="noopener noreferrer" 
+									class="block p-2 hover:bg-gray-50 dark:hover:bg-gray-700 rounded transition-colors">
+									<span class="font-medium">${resource.data.title}</span>
+									<p class="text-gray-600 dark:text-gray-400 text-xs mt-1">${resource.data.description}</p>
+								</a>
+							`).join('')}
+						</ul>
+					`;
+
+					skillItem.appendChild(tooltip);
+
+					// Add hover handlers
+					skillItem.addEventListener('mouseenter', () => {
+						tooltip.classList.remove('hidden');
+					});
+
+					skillItem.addEventListener('mouseleave', () => {
+						tooltip.classList.add('hidden');
+					});
+				}
+			}
+		});
+	}
+
+	// Initialize detail views
+	function initializeDetailViews() {
+		document.querySelectorAll('.roadmap-step').forEach((step) => {
+			step.addEventListener('click', () => {
+				const detailView = step.querySelector('.detailed-view');
+				if (detailView) {
+					detailView.classList.remove('hidden');
+					document.body.style.overflow = 'hidden';
+				}
+			});
+		});
+
+		document.querySelectorAll('.close-detail').forEach((button) => {
+			button.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const detailView = e.target.closest('.detailed-view');
+				if (detailView) {
+					detailView.classList.add('hidden');
+					document.body.style.overflow = '';
+				}
+			});
+		});
+
+		document.querySelectorAll('.detailed-view').forEach((view) => {
+			view.addEventListener('click', (e) => {
+				if (e.target === view) {
+					view.classList.add('hidden');
+					document.body.style.overflow = '';
+				}
+			});
+		});
+	}
+
+	// Update progress bars
+	function updateProgressBars() {
+		const levels = document.querySelectorAll('.progress-bar');
+		const percentages = document.querySelectorAll('.progress-percentage');
+
+		roadmapSteps.forEach((level, levelIndex) => {
+			let totalSkills = 0;
+			let completedSkills = 0;
+
+			level.steps.forEach((step, stepIndex) => {
+				step.skills.forEach((skill) => {
+					totalSkills++;
+					if (progress[`${levelIndex}-${stepIndex}-${skill}`]) {
+						completedSkills++;
+					}
+				});
+			});
+
+			const percentage = Math.round((completedSkills / totalSkills) * 100);
+			const progressBar = levels[levelIndex];
+			if (progressBar) {
+				progressBar.style.width = `${percentage}%`;
+			}
+			const percentageElement = percentages[levelIndex];
+			if (percentageElement) {
+				percentageElement.textContent = `${percentage}%`;
+			}
+		});
+	}
+</script>
+
+<style>
+	/* Enhanced color scheme */
+	.bg-emerald-100 { background-color: #d1fae5; }
+	.bg-indigo-100 { background-color: #e0e7ff; }
+	.bg-rose-100 { background-color: #ffe4e6; }
+	
+	.dark .bg-emerald-900\/30 { background-color: rgba(6, 78, 59, 0.3); }
+	.dark .bg-indigo-900\/30 { background-color: rgba(49, 46, 129, 0.3); }
+	.dark .bg-rose-900\/30 { background-color: rgba(136, 19, 55, 0.3); }
+	
+	.border-emerald-500 { border-color: #10b981; }
+	.border-indigo-500 { border-color: #6366f1; }
+	.border-rose-500 { border-color: #f43f5e; }
+	
+	.text-emerald-600 { color: #059669; }
+	.text-indigo-600 { color: #4f46e5; }
+	.text-rose-600 { color: #e11d48; }
+	
+	.dark .text-emerald-300 { color: #6ee7b7; }
+	.dark .text-indigo-300 { color: #a5b4fc; }
+	.dark .text-rose-300 { color: #fda4af; }
+	
+	.text-emerald-400 { color: #34d399; }
+	.text-indigo-400 { color: #818cf8; }
+	.text-rose-400 { color: #fb7185; }
+	
+	.bg-emerald-50 { background-color: #ecfdf5; }
+	.bg-indigo-50 { background-color: #eef2ff; }
+	.bg-rose-50 { background-color: #fff1f2; }
+	
+	.dark .bg-emerald-900\/20 { background-color: rgba(6, 78, 59, 0.2); }
+	.dark .bg-indigo-900\/20 { background-color: rgba(49, 46, 129, 0.2); }
+	.dark .bg-rose-900\/20 { background-color: rgba(136, 19, 55, 0.2); }
+
+	.skill-item {
+		position: relative;
+	}
+
+	.skill-tooltip {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		margin-top: 0.5rem;
+		transform-origin: top left;
+		transition: transform 0.2s, opacity 0.2s;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.skill-item:hover .skill-tooltip {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.detailed-view {
+		backdrop-filter: blur(8px);
+		transition: opacity 0.3s;
+	}
+
+	.detailed-view > div {
+		transform: scale(0.95);
+		opacity: 0;
+		transition: transform 0.3s, opacity 0.3s;
+	}
+
+	.detailed-view:not(.hidden) {
+		opacity: 1;
+	}
+
+	.detailed-view:not(.hidden) > div {
+		transform: scale(1);
+		opacity: 1;
+	}
+</style>

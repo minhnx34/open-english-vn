@@ -3,7 +3,7 @@ title: "Common Grammar Mistakes Vietnamese Learners Make"
 description: "Learn about the most common English grammar mistakes made by Vietnamese learners and how to avoid them."
 pubDate: 2024-03-19
 author: "Grammar Expert"
-image: "/images/blog/grammar-mistakes.jpg"
+image: "/open-english-vn/images/blog/grammar-mistakes.jpg"
 tags: ["grammar", "mistakes", "english", "tips"]
 ---
 

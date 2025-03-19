@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Resource {
   data: {
     title: string;
     description: string;
     url: string;
+    image?: string;
     category: string;
     tags: string[];
     free: boolean;
@@ -23,23 +25,57 @@ const groupedResources: Record<string, Resource[]> = resources.reduce((acc, reso
   return acc;
 }, {} as Record<string, Resource[]>);
 
-// Get unique tags from all resources
+// Get unique tags and categories
 const allTags = [...new Set(resources.flatMap((resource) => resource.data.tags))];
+const allCategories = [...new Set(resources.map((resource) => resource.data.category))];
+
+// Get the base URL from environment
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Layout title="English Learning Resources | OpenEnglishVN">
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-        English Learning Resources
+        Global English Learning Resources
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-300">
-        Discover curated resources to help you master English language skills.
-      </p>
+      <div class="space-y-4">
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Explore our curated collection of English learning resources, carefully organized by category to help you master every aspect of the English language.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-600 dark:text-gray-400">
+          <div>
+            <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Foundation Skills</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Letters and Sounds - Master phonics and pronunciation</li>
+              <li>Words and Spelling - Build your vocabulary</li>
+              <li>Punctuation - Learn proper writing mechanics</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Core Skills</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Reading - Improve comprehension</li>
+              <li>Writing - Develop composition skills</li>
+              <li>Speaking - Enhance verbal communication</li>
+              <li>Listening - Strengthen audio comprehension</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2 text-gray-900 dark:text-white">Advanced Learning</h3>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Grammar - Perfect your language structure</li>
+              <li>IELTS/TOEFL - Prepare for exams</li>
+              <li>Stories - Practice through literature</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Search and Filters -->
-    <div class="mb-8 space-y-4">
+    <div class="mb-8 space-y-6">
+      <!-- Search Input -->
       <div class="relative">
         <input
           type="text"
@@ -49,36 +85,74 @@ const allTags = [...new Set(resources.flatMap((resource) => resource.data.tags))
         />
       </div>
 
-      <div class="flex flex-wrap gap-2">
-        {allTags.map((tag) => (
+      <!-- Category Filters -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">Categories</h3>
+        <div class="flex flex-wrap gap-2">
           <button
-            class="px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            class="category-filter px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            data-category="all"
           >
-            {tag}
+            All Categories
           </button>
-        ))}
+          {allCategories.map((category) => (
+            <button
+              class="category-filter px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              data-category={category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Tag Filters -->
+      <div class="space-y-2">
+        <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300">Tags</h3>
+        <div class="flex flex-wrap gap-2">
+          {allTags.map((tag) => (
+            <button
+              class="tag-filter px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              data-tag={tag}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
 
     <!-- Resources Grid -->
-    <div class="grid grid-cols-1 gap-8">
+    <div class="grid grid-cols-1 gap-8" id="resources-grid">
       {Object.entries(groupedResources).map(([category, items]) => (
-        <section class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+        <section class="category-section bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden" data-category={category}>
           <div class="p-6 border-b border-gray-200 dark:border-gray-700">
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">{category}</h2>
           </div>
           <div class="p-6">
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {items.map((resource) => (
-                <article class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-600">
+                <article class="resource-card bg-gray-50 dark:bg-gray-700 rounded-xl p-6 hover:shadow-lg transition-all duration-200 border border-gray-100 dark:border-gray-600" data-category={resource.data.category}>
                   <div class="flex flex-col h-full">
                     <div>
+                      <div class="aspect-video w-full mb-4 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+                        <img
+                          src={resource.data.image}
+                          alt={resource.data.title}
+                          class="w-full h-full object-cover"
+                          loading="lazy"
+                          onerror="this.src=`${import.meta.env.BASE_URL}/images/resources/default-resource.png`"
+                        />
+                      </div>
                       <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-2">
                         {resource.data.title}
                       </h3>
                       <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
                         {resource.data.description}
                       </p>
+                      <div class="resource-tooltip">
+                        {resource.data.description}
+                      </div>
                     </div>
                     <div class="mt-auto">
                       <div class="flex flex-wrap gap-2 mb-4">
@@ -117,34 +191,74 @@ const allTags = [...new Set(resources.flatMap((resource) => resource.data.tags))
   <script>
     // Search functionality
     const searchInput = document.getElementById("search");
-    const resourceCards = document.querySelectorAll("article");
+    const resourceCards = document.querySelectorAll<HTMLElement>(".resource-card");
+    const categoryButtons = document.querySelectorAll(".category-filter");
+    const tagButtons = document.querySelectorAll(".tag-filter");
+    const categorySections = document.querySelectorAll<HTMLElement>(".category-section");
 
-    searchInput?.addEventListener("input", (e) => {
-      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    let activeCategory: string | null = "all";
+    let activeTag: string | null = null;
+    let searchTerm = "";
 
+    function updateVisibility() {
       resourceCards.forEach((card) => {
         const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
         const description = card.querySelector("p")?.textContent?.toLowerCase() || "";
-        const tags = Array.from(card.querySelectorAll(".flex-wrap span")).map(
+        const cardTags = Array.from(card.querySelectorAll(".flex-wrap span")).map(
           (tag) => tag.textContent?.toLowerCase() || ""
         );
+        const cardCategory = card.getAttribute("data-category");
 
-        const matches =
+        const matchesSearch = 
           title.includes(searchTerm) ||
           description.includes(searchTerm) ||
-          tags.some((tag) => tag.includes(searchTerm));
+          cardTags.some((tag) => tag.includes(searchTerm));
 
-        card.style.display = matches ? "block" : "none";
+        const matchesCategory = activeCategory === "all" || cardCategory === activeCategory;
+        const matchesTag = !activeTag || cardTags.includes(activeTag);
+
+        card.style.display = matchesSearch && matchesCategory && matchesTag ? "block" : "none";
+      });
+
+      // Update category section visibility
+      categorySections.forEach((section) => {
+        const sectionCategory = section.getAttribute("data-category");
+        const hasVisibleCards = Array.from(section.querySelectorAll<HTMLElement>(".resource-card")).some(
+          card => card.style.display !== "none"
+        );
+        section.style.display = hasVisibleCards ? "block" : "none";
+      });
+    }
+
+    // Search event listener
+    searchInput?.addEventListener("input", (e) => {
+      searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+      updateVisibility();
+    });
+
+    // Category filter
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.getAttribute("data-category");
+        
+        // Update active state
+        categoryButtons.forEach((btn) => {
+          btn.classList.remove("bg-blue-100", "dark:bg-blue-900", "text-blue-700", "dark:text-blue-300");
+          btn.classList.add("bg-gray-100", "dark:bg-gray-800", "text-gray-700", "dark:text-gray-300");
+        });
+
+        button.classList.remove("bg-gray-100", "dark:bg-gray-800", "text-gray-700", "dark:text-gray-300");
+        button.classList.add("bg-blue-100", "dark:bg-blue-900", "text-blue-700", "dark:text-blue-300");
+
+        activeCategory = category;
+        updateVisibility();
       });
     });
 
-    // Tag filtering
-    const tagButtons = document.querySelectorAll("button");
-    let activeTag: string | null = null;
-
+    // Tag filter
     tagButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const tag = button.textContent?.toLowerCase() || "";
+        const tag = button.getAttribute("data-tag");
 
         // Toggle active state
         if (activeTag === tag) {
@@ -164,14 +278,58 @@ const allTags = [...new Set(resources.flatMap((resource) => resource.data.tags))
           button.classList.add("bg-blue-100", "dark:bg-blue-900", "text-blue-700", "dark:text-blue-300");
         }
 
-        // Filter resources
-        resourceCards.forEach((card) => {
-          const cardTags = Array.from(card.querySelectorAll(".flex-wrap span")).map(
-            (tag) => tag.textContent?.toLowerCase() || ""
-          );
-          card.style.display = !activeTag || cardTags.includes(activeTag) ? "block" : "none";
-        });
+        updateVisibility();
       });
     });
   </script>
+
+  <style>
+    .resource-tooltip {
+      visibility: hidden;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 100%;
+      width: max-content;
+      max-width: 400px;
+      background: white;
+      color: #1f2937;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      z-index: 50;
+    }
+
+    .dark .resource-tooltip {
+      background: #1f2937;
+      color: #e5e7eb;
+    }
+
+    .resource-card {
+      position: relative;
+    }
+
+    .resource-card:hover .resource-tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Arrow for tooltip */
+    .resource-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 8px;
+      border-style: solid;
+      border-color: white transparent transparent transparent;
+    }
+
+    .dark .resource-tooltip::after {
+      border-color: #1f2937 transparent transparent transparent;
+    }
+  </style>
 </Layout>

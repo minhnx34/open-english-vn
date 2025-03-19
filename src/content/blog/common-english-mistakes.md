@@ -3,7 +3,7 @@ title: "Master These Common English Grammar Patterns"
 description: "A practical guide for Vietnamese learners to understand and correct frequent English grammar mistakes, with clear examples and explanations."
 pubDate: 2024-03-20
 author: "English Learning Team"
-image: "/images/blog/english-grammar.jpg"
+image: "/open-english-vn/images/blog/english-grammar.jpg"
 tags: ["grammar", "common mistakes", "vietnamese learners", "english learning"]
 ---
 

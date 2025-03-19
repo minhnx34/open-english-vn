@@ -3,7 +3,7 @@ title: "10 Essential Tips for IELTS Speaking Success"
 description: "Learn proven strategies to improve your IELTS speaking score with these expert tips specifically designed for Vietnamese learners."
 pubDate: 2024-03-20
 author: "IELTS Expert"
-image: "/images/blog/ielts-speaking.jpg"
+image: "/open-english-vn/images/blog/ielts-speaking.jpg"
 tags: ["ielts", "speaking", "tips", "english"]
 ---
 

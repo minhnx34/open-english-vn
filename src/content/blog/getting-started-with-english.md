@@ -3,7 +3,7 @@ title: "Getting Started with English: A Beginner's Guide"
 description: "Learn the essential steps to start your English learning journey effectively"
 pubDate: 2024-03-20
 author: "English Learning Expert"
-image: "/images/blog/english-learning.jpg"
+image: "/open-english-vn/images/blog/english-learning.jpg"
 tags: ["beginner", "english", "learning", "tips"]
 ---
 
