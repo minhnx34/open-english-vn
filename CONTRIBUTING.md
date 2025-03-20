@@ -39,18 +39,22 @@ Thank you for your interest in contributing to My Astro Resources! This guide wi
 - Keep descriptions concise but informative
 - Make sure all links are working
 
-## Categories Available
+## 📖 Categories  
 
-- Grammar
-- Speaking
-- Listening
-- Writing
-- IELTS
-- TOEFL
-- Vocabulary
-- Beginner
-- Intermediate
-- Advanced
+- Letters and Sounds  
+- Punctuation  
+- Words and Spelling  
+- Learning to Read  
+- Writing  
+- Stories  
+- Grammar  
+- Speaking  
+- Listening  
+- Reading  
+- Vocabulary  
+- IELTS  
+- TOEFL  
+- General  
 
 ## Questions?
 
