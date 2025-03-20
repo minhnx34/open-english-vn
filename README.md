@@ -21,18 +21,22 @@ We welcome contributions from developers who create English learning resources! 
 
 For detailed guidelines, please see our [Contributing Guide](CONTRIBUTING.md).
 
-## 📖 Categories
+## 📖 Categories  
 
-- Grammar
-- Speaking
-- Listening
-- Writing
-- IELTS
-- TOEFL
-- Vocabulary
-- Beginner
-- Intermediate
-- Advanced
+- Letters and Sounds  
+- Punctuation  
+- Words and Spelling  
+- Learning to Read  
+- Writing  
+- Stories  
+- Grammar  
+- Speaking  
+- Listening  
+- Reading  
+- Vocabulary  
+- IELTS  
+- TOEFL  
+- General  
 
 ## 🚀 Getting Started
 
