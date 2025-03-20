@@ -1,4 +1,4 @@
-# My Astro Resources
+# Open English VN Resources
 
 A curated collection of English learning resources for Vietnamese learners.
 
