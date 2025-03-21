@@ -7,7 +7,7 @@ image: "/open-english-vn/images/blog/english-learning.png"
 tags: ["learn English", "pronunciation", "phonics", "listening and speaking", "English communication"]
 ---
 
-# Hầu hết người Việt học tiếng Anh đều “cầm đèn chạy trước ô tô”
+## Hầu hết người Việt học tiếng Anh đều “cầm đèn chạy trước ô tô”
 
 Hầu hết người Việt học tiếng Anh đều <strong>cầm đèn chạy trước ô tô</strong>, nghĩa là học viết trước khi học nghe và đọc. Điều này khiến cho dù có nhìn vào chữ thì mình biết nghĩa, nhưng lại không phát âm chuẩn được. Khi nói chuyện bằng tiếng Anh thì cứ ấp a ấp úng, câu nói được câu không, vừa nói vừa dịch từ tiếng Việt sang tiếng Anh trong đầu. Lý do là vì không có nền tảng về Phonics, dẫn đến phát âm sai, mà phát âm sai thì làm sao nói cho đúng được. Không nói được thì làm sao tự tin mà giao tiếp bằng tiếng Anh. Chính vì không nói được nên nhiều người sinh ra sợ, không dám học tiếng Anh nữa. Vậy nên, hôm nay mình sẽ chia sẻ với các bạn cách học tiếng Anh giống như hồi nhỏ mình học tiếng Việt vậy.
 
