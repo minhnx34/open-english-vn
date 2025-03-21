@@ -12,6 +12,7 @@ A curated collection of English learning resources for Vietnamese learners.
 
 ## 🤝 Contributing
 - Don't know how to contribute? Watch this video: https://youtu.be/ZMb9EHfdgi8
+  
 We welcome contributions from developers who create English learning resources! Here's how you can contribute:
 
 1. Fork this repository
