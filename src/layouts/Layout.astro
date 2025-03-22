@@ -1,32 +1,57 @@
 ---
-import Navbar from '../components/Navbar.astro';
-import '../styles/global.css';
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
 
 interface Props {
 	title: string;
 	description?: string;
 }
 
-const { title, description = "A curated collection of English learning resources created by Vietnamese developers" } = Astro.props;
+const {
+	title,
+	description = "A curated collection of English learning resources created by Vietnamese developers",
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + '/favicon.svg'} />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href={import.meta.env.BASE_URL + "/favicon.svg"}
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<script is:inline>
 			// Check for saved dark mode preference
-			const theme = localStorage.getItem('theme') || 
-				(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-			document.documentElement.classList.toggle('dark', theme === 'dark');
+			const theme =
+				localStorage.getItem("theme") ||
+				(window.matchMedia("(prefers-color-scheme: dark)").matches
+					? "dark"
+					: "light");
+			document.documentElement.classList.toggle("dark", theme === "dark");
+		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				if (!sessionStorage.getItem("visited")) {
+					let visitorCount =
+						localStorage.getItem("visitorCount") || 0;
+					visitorCount = parseInt(visitorCount) + 1;
+					localStorage.setItem("visitorCount", visitorCount);
+					sessionStorage.setItem("visited", "true");
+				}
+				document.getElementById("visitor-count").textContent =
+					localStorage.getItem("visitorCount");
+			});
 		</script>
 	</head>
-	<body class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+	<body
+		class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100"
+	>
 		<Navbar />
 		<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 			<slot />
