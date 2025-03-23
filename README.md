@@ -86,6 +86,8 @@ For detailed guidelines, please see our [Contributing Guide](CONTRIBUTING.md).
 3. Start the development server: `npm run dev`
 4. Open [http://localhost:4321/open-english-vn/](http://localhost:4321/open-english-vn/) in your browser
 
+For Docker-compose: Run command `docker-compose up --build`
+
 ## 📝 License
 
 MIT License - feel free to use this project for your own learning resources!
