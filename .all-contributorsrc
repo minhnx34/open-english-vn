@@ -9,7 +9,17 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "angular",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "VuongKha",
+      "name": "VuongKha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/182387157?v=4",
+      "profile": "https://github.com/VuongKha",
+      "contributions": [
+        "data"
+      ]
+    }
+  ],
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
