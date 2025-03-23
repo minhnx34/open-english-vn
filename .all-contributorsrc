@@ -16,7 +16,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/182387157?v=4",
       "profile": "https://github.com/VuongKha",
       "contributions": [
-        "data"
+        "doc"
       ]
     },
     {
@@ -25,7 +25,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/3851842?v=4",
       "profile": "https://www.linkedin.com/in/vovanduc",
       "contributions": [
-        "data"
+        "content"
       ]
     },
     {
@@ -34,7 +34,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/37369211?v=4",
       "profile": "https://github.com/natural-mess",
       "contributions": [
-        "data"
+        "content"
       ]
     },
     {
@@ -43,7 +43,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/108291165?v=4",
       "profile": "https://astro.build/",
       "contributions": [
-        "data"
+        "doc"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/182874747?v=4",
       "profile": "https://github.com/Lupu29",
       "contributions": [
-        "data"
+        "content"
       ]
     },
     {
@@ -61,7 +61,28 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/112406680?v=4",
       "profile": "https://harrypage.hashnode.dev/",
       "contributions": [
-        "code"
+        "code",
+        "doc",
+        "question",
+        "review"
+      ]
+    },
+    {
+      "login": "vinhsang7410",
+      "name": "vinhsang7410",
+      "avatar_url": "https://avatars.githubusercontent.com/u/36439454?v=4",
+      "profile": "https://github.com/vinhsang7410",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "Paxle86",
+      "name": "Le Tat Thanh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57349163?v=4",
+      "profile": "https://github.com/Paxle86",
+      "contributions": [
+        "content"
       ]
     }
   ],
