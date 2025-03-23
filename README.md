@@ -1,6 +1,6 @@
 # Open English VN Resources
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A curated collection of English learning resources for Vietnamese learners.
@@ -26,6 +26,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Paxle86"><img src="https://avatars.githubusercontent.com/u/57349163?v=4?s=100" width="100px;" alt="Le Tat Thanh"/><br /><sub><b>Le Tat Thanh</b></sub></a><br /><a href="#content-Paxle86" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Hoang-Nguyen-Huy"><img src="https://avatars.githubusercontent.com/u/121879570?v=4?s=100" width="100px;" alt="Nguyễn Huy Hoàng"/><br /><sub><b>Nguyễn Huy Hoàng</b></sub></a><br /><a href="https://github.com/Gianguyen1234/open-english-vn/commits?author=Hoang-Nguyen-Huy" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://nguyenthanhxuan.name.vn/"><img src="https://avatars.githubusercontent.com/u/2492355?v=4?s=100" width="100px;" alt="Xuan Nguyen"/><br /><sub><b>Xuan Nguyen</b></sub></a><br /><a href="#content-nguyenthanhxuan" title="Content">🖋</a></td>
     </tr>
   </tbody>
   <tfoot>

@@ -93,6 +93,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "nguyenthanhxuan",
+      "name": "Xuan Nguyen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2492355?v=4",
+      "profile": "https://nguyenthanhxuan.name.vn/",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
