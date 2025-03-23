@@ -1,4 +1,7 @@
 # Open English VN Resources
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A curated collection of English learning resources for Vietnamese learners.
 
@@ -69,3 +72,16 @@ Gian Nguyen - [@giannguyen](https://twitter.com/giannguyen) - giannguyen@example
 
 Project Link: [https://github.com/Gianguyen1234/open-english-vn](https://github.com/Gianguyen1234/open-english-vn)
 Live Site: [https://gianguyen1234.github.io/open-english-vn/](https://gianguyen1234.github.io/open-english-vn/)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
