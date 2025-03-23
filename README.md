@@ -1,6 +1,6 @@
 # Open English VN Resources
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A curated collection of English learning resources for Vietnamese learners.
@@ -87,6 +87,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/vovanduc"><img src="https://avatars.githubusercontent.com/u/3851842?v=4?s=100" width="100px;" alt="Duc Vo"/><br /><sub><b>Duc Vo</b></sub></a><br /><a href="#data-vovanduc" title="Data">🔣</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/natural-mess"><img src="https://avatars.githubusercontent.com/u/37369211?v=4?s=100" width="100px;" alt="Natural Mess"/><br /><sub><b>Natural Mess</b></sub></a><br /><a href="#data-natural-mess" title="Data">🔣</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://astro.build/"><img src="https://avatars.githubusercontent.com/u/108291165?v=4?s=100" width="100px;" alt="Houston (Bot)"/><br /><sub><b>Houston (Bot)</b></sub></a><br /><a href="#data-astrobot-houston" title="Data">🔣</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Lupu29"><img src="https://avatars.githubusercontent.com/u/182874747?v=4?s=100" width="100px;" alt="Lupu29"/><br /><sub><b>Lupu29</b></sub></a><br /><a href="#data-Lupu29" title="Data">🔣</a></td>
     </tr>
   </tbody>
   <tfoot>
