@@ -61,7 +61,26 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/112406680?v=4",
       "profile": "https://harrypage.hashnode.dev/",
       "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "vinhsang7410",
+      "name": "vinhsang7410",
+      "avatar_url": "https://avatars.githubusercontent.com/u/36439454?v=4",
+      "profile": "https://github.com/vinhsang7410",
+      "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "Paxle86",
+      "name": "Le Tat Thanh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57349163?v=4",
+      "profile": "https://github.com/Paxle86",
+      "contributions": [
+        "data"
       ]
     }
   ],
