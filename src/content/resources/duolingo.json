@@ -1,0 +1,9 @@
+{
+  "title": "Duolingo",
+  "description": "Ứng dụng học ngôn ngữ miễn phí với phương pháp học gamified, giúp người học cải thiện từ vựng và ngữ pháp qua các bài tập tương tác.",
+  "url": "https://www.duolingo.com/",
+  "image": "/open-english-vn/images/resources/duolingo.png",
+  "category": "General",
+  "tags": ["vocabulary", "grammar", "games", "interactive"],
+  "free": true
+}
