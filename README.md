@@ -1,6 +1,6 @@
 # Open English VN Resources
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A curated collection of English learning resources for Vietnamese learners.
@@ -22,6 +22,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Lupu29"><img src="https://avatars.githubusercontent.com/u/182874747?v=4?s=100" width="100px;" alt="Lupu29"/><br /><sub><b>Lupu29</b></sub></a><br /><a href="#data-Lupu29" title="Data">🔣</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://harrypage.hashnode.dev/"><img src="https://avatars.githubusercontent.com/u/112406680?v=4?s=100" width="100px;" alt="Holy_Dev"/><br /><sub><b>Holy_Dev</b></sub></a><br /><a href="https://github.com/Gianguyen1234/open-english-vn/commits?author=Gianguyen1234" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/vinhsang7410"><img src="https://avatars.githubusercontent.com/u/36439454?v=4?s=100" width="100px;" alt="vinhsang7410"/><br /><sub><b>vinhsang7410</b></sub></a><br /><a href="https://github.com/Gianguyen1234/open-english-vn/commits?author=vinhsang7410" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Paxle86"><img src="https://avatars.githubusercontent.com/u/57349163?v=4?s=100" width="100px;" alt="Le Tat Thanh"/><br /><sub><b>Le Tat Thanh</b></sub></a><br /><a href="#data-Paxle86" title="Data">🔣</a></td>
     </tr>
   </tbody>
   <tfoot>
