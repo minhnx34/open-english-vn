@@ -58,9 +58,18 @@ MIT License - feel free to use this project for your own learning resources!
 - [TypeScript](https://www.typescriptlang.org) - JavaScript with syntax for types
 
 ## 🙏 Acknowledgments
+## 🚀 Contributors
 
-- Thanks to all contributors who have helped shape this project
-- Inspired by various resource collections in the web development community
+Thanks to these amazing people for contributing:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+| [<img src="https://github.com/Gianguyen1234.png" width="50px;"/>](https://github.com/Gianguyen1234) |
+| :---: |
+| [Gianguyen1234](https://github.com/Gianguyen1234) |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 ## 📫 Contact
 
