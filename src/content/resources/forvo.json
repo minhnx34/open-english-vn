@@ -1,0 +1,9 @@
+{
+  "title": "Forvo",
+  "description": "Pronunciation dictionary. How to pronounce words.",
+  "url": "https://forvo.com/",
+  "image": "/open-english-vn/images/resources/forvo.png",
+  "category": "Words and Spelling",
+  "tags": ["vocabulary", "pronunciation"],
+  "free": true
+}
