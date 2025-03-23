@@ -36,6 +36,15 @@
       "contributions": [
         "data"
       ]
+    },
+    {
+      "login": "astrobot-houston",
+      "name": "Houston (Bot)",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108291165?v=4",
+      "profile": "https://astro.build/",
+      "contributions": [
+        "data"
+      ]
     }
   ],
   "contributorsPerLine": 7,
