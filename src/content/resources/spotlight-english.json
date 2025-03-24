@@ -1,0 +1,9 @@
+{
+  "title": "Spotlight English",
+  "description": "A non-profit website designed to help users improve their English skills—reading, listening, and speaking—through daily vocabulary and audio lessons on current global topics.",
+  "url": "https://spotlightenglish.com/",
+  "image": "/open-english-vn/images/resources/spotlight-english.png",
+  "category": "General",
+  "tags": ["listening", "grammar", "vocabulary", "pronunciation", "news"],
+  "free": true
+}
