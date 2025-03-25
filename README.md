@@ -30,6 +30,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://cray7.netlify.app/"><img src="https://avatars.githubusercontent.com/u/70331512?v=4?s=100" width="100px;" alt="NgD.Cankkun"/><br /><sub><b>NgD.Cankkun</b></sub></a><br /><a href="#content-YarC7" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/GiapKun"><img src="https://avatars.githubusercontent.com/u/133072403?v=4?s=100" width="100px;" alt="Trần Đình Giáp"/><br /><sub><b>Trần Đình Giáp</b></sub></a><br /><a href="#content-GiapKun" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/minhbka"><img src="https://avatars.githubusercontent.com/u/22513525?v=4?s=100" width="100px;" alt="PHAN VAN MINH"/><br /><sub><b>PHAN VAN MINH</b></sub></a><br /><a href="#content-minhbka" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kitajima2910"><img src="https://avatars.githubusercontent.com/u/50172777?v=4?s=100" width="100px;" alt="Phạm Xuân Hoài"/><br /><sub><b>PXH2910</b></sub></a><br /><a href="#research-pxh2910" title="research">🔬</a><a href="#code-pxh2910" title="code">💻</a><a href="#example-pxh2910" title="example">💡</a><a href="#test-pxh2910" title="test">⚠️</a><a href="#tutorial-pxh2910" title="tutorial">✅</a></td>
     </tr>
   </tbody>
   <tfoot>
