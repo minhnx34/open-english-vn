@@ -1,6 +1,6 @@
 # Open English VN Resources
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 A curated collection of English learning resources for Vietnamese learners.
@@ -31,6 +31,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/GiapKun"><img src="https://avatars.githubusercontent.com/u/133072403?v=4?s=100" width="100px;" alt="Trần Đình Giáp"/><br /><sub><b>Trần Đình Giáp</b></sub></a><br /><a href="#content-GiapKun" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/minhbka"><img src="https://avatars.githubusercontent.com/u/22513525?v=4?s=100" width="100px;" alt="PHAN VAN MINH"/><br /><sub><b>PHAN VAN MINH</b></sub></a><br /><a href="#content-minhbka" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kitajima2910"><img src="https://avatars.githubusercontent.com/u/50172777?v=4?s=100" width="100px;" alt="Phạm Xuân Hoài"/><br /><sub><b>Phạm Xuân Hoài</b></sub></a><br /><a href="#content-kitajima2910" title="Content">🖋</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MyNameIsKry"><img src="https://avatars.githubusercontent.com/u/117553015?v=4?s=100" width="100px;" alt="Kry"/><br /><sub><b>Kry</b></sub></a><br /><a href="#content-MyNameIsKry" title="Content">🖋</a></td>
     </tr>
   </tbody>
   <tfoot>

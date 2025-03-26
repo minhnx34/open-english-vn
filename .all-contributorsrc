@@ -139,6 +139,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "MyNameIsKry",
+      "name": "Kry",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117553015?v=4",
+      "profile": "https://github.com/MyNameIsKry",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
