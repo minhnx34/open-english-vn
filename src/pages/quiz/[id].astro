@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export const getStaticPaths = async () => {
+  const quizzes = await getCollection('quiz'); // Fetch all quizzes
+  return quizzes.map((quiz) => ({
+    params: { id: quiz.id }, // Define route parameters
+  }));
+};
+const base = import.meta.env.BASE_URL;
+
+// Get the `id` from the route
+const { id } = Astro.params;
+
+// Fetch the quiz data
+const quizzes = await getCollection('quiz');
+const quiz = quizzes.find(q => q.id === id);
+
+if (!quiz) {
+  throw new Error(`Quiz not found: ${id}`);
+}
+
+// Convert quiz questions to JSON for Alpine.js
+const quizJson = JSON.stringify(quiz.data.questions);
+---
+
+<Layout>
+  <div class="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+       x-data="quizComponent({questions: JSON.parse($el.dataset.quiz)})"
+       data-quiz={quizJson}>
+
+    <a href={`${base}/quiz`} class="inline-block mb-4 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+      Back to Quiz List
+    </a>
+
+    <h1 class="text-3xl font-bold text-center text-gray-900 dark:text-white">{quiz.data.title}</h1>
+    <p class="text-center text-gray-600 dark:text-gray-300 mb-6">{quiz.data.description}</p>
+
+    <div class="space-y-6">
+      <template x-for="(q, index) in questions" :key="index">
+        <div class="border p-4 rounded-md">
+          <p class="font-semibold" x-text="`${index + 1}. ${q.question}`"></p>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <template x-for="option in q.options" :key="option">
+              <button 
+                class="p-3 text-left w-full rounded-md transition-colors duration-200"
+                :class="{
+                  'bg-green-100 text-green-800 hover:bg-green-200': selectedAnswers[index] === option,
+                  'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600': selectedAnswers[index] !== option
+                }"
+                @click="handleAnswerSelect(index, option)"
+                x-text="option"
+                style="margin: 0.3em"
+              >
+              </button>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <button class="mt-6 w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors duration-200" @click="handleSubmit">
+      Submit Quiz
+    </button>
+
+    <template x-if="score !== null">
+      <p class="mt-4 text-lg font-semibold text-center">
+        Your Score: <span x-text="score"></span> / <span x-text="questions.length"></span>
+      </p>
+    </template>
+  </div>
+</Layout>
+
+<!-- ✅ Define Alpine.js Component Before Using It -->
+<script>
+document.addEventListener("alpine:init", () => {
+  Alpine.data("quizComponent", ({ questions }) => ({
+    questions,
+    selectedAnswers: Array(questions.length).fill(null),
+    score: null,
+
+    handleAnswerSelect(index, option) {
+      this.selectedAnswers[index] = option;
+    },
+
+    handleSubmit() {
+      let correct = 0;
+      this.selectedAnswers.forEach((answer, index) => {
+        if (answer === this.questions[index].answer) {
+          correct++;
+        }
+      });
+      this.score = correct;
+    }
+  }));
+})
+</script>
+
+<!-- ✅ Load Alpine.js After Script -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x/dist/cdn.min.js" defer></script>

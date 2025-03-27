@@ -40,7 +40,26 @@ const resources = defineCollection({
   }),
 });
 
+
+const quiz = defineCollection({
+  type: 'data',
+  schema: z.object({
+    slug: z.string(),  // Add this line
+    title: z.string(),
+    description: z.string().optional(),
+    questions: z.array(
+      z.object({
+        question: z.string(),
+        options: z.array(z.string()),
+        answer: z.string(),
+      })
+    ),
+  }),
+});
+
+
 export const collections = {
   blog,
   resources,
-}; 
+  quiz, // Include quiz collection
+};
