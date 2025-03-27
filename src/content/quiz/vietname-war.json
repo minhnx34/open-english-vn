@@ -1,0 +1,57 @@
+{
+    "slug": "vietnam-war",
+    "title": "Vietnam War Quiz",
+    "description": "Test your knowledge about the Vietnam War with these challenging questions!",
+    "questions": [
+        {
+            "question": "When did the Vietnam War officially start?",
+            "options": ["1955", "1960", "1965", "1970"],
+            "answer": "1955"
+        },
+        {
+            "question": "What was the main reason for U.S. involvement in the Vietnam War?",
+            "options": ["Oil resources", "Containment of communism", "Territorial expansion", "Economic interests"],
+            "answer": "Containment of communism"
+        },
+        {
+            "question": "Which country controlled Vietnam before it gained independence in 1954?",
+            "options": ["China", "Japan", "France", "United Kingdom"],
+            "answer": "France"
+        },
+        {
+            "question": "Who was the leader of North Vietnam during most of the war?",
+            "options": ["Nguyen Van Thieu", "Ho Chi Minh", "Diem Bien Phu", "Vo Nguyen Giap"],
+            "answer": "Ho Chi Minh"
+        },
+        {
+            "question": "What was the name of the communist forces in South Vietnam?",
+            "options": ["Viet Cong", "Khmer Rouge", "Red Army", "Pathet Lao"],
+            "answer": "Viet Cong"
+        },
+        {
+            "question": "Which major offensive by North Vietnam in 1968 marked a turning point in the war?",
+            "options": ["Dien Bien Phu Battle", "Tet Offensive", "Fall of Saigon", "My Lai Massacre"],
+            "answer": "Tet Offensive"
+        },
+        {
+            "question": "What chemical defoliant was used by the U.S. military to destroy jungle cover?",
+            "options": ["Agent Blue", "Agent Orange", "Napalm", "Mustard Gas"],
+            "answer": "Agent Orange"
+        },
+        {
+            "question": "When did Saigon fall, marking the end of the Vietnam War?",
+            "options": ["April 30, 1973", "April 30, 1975", "May 1, 1976", "March 15, 1974"],
+            "answer": "April 30, 1975"
+        },
+        {
+            "question": "Which U.S. president significantly escalated American troop presence in Vietnam?",
+            "options": ["Dwight Eisenhower", "John F. Kennedy", "Lyndon B. Johnson", "Richard Nixon"],
+            "answer": "Lyndon B. Johnson"
+        },
+        {
+            "question": "What was the name of the peace agreement that ended U.S. direct involvement in the war?",
+            "options": ["Geneva Accords", "Paris Peace Accords", "Yalta Agreement", "Potsdam Conference"],
+            "answer": "Paris Peace Accords"
+        }
+    ]
+}
